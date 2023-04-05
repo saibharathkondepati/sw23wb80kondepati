@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{jeep_name:"Wrangler",jeep_name:"blue",jeep_price:20000},{jeep_name:"Cherokee",jeep_color:"red",jeep_price:60000},{jeep_name:"Renegade",jeep_color:"green",jeep_price:578000}]
+  div(class="container-fluid")
+  div(class="row")
+  each value,indexNo in results
+    div(class="col-sm-2" onclick=`buy(${indexNo})`)  #{value.jeep_name} Jeep, color is #{value.jeep_name},price value is #{value.jeep_price}
+  script. 
+    function buy(indexNo)
+    {
+      alert(`You purchased Item ${indexNo+1}`)
+    }
