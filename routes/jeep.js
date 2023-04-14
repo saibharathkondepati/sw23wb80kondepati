@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const Jeep_controlers= require('../controllers/jeep');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('jeep', { title: 'Search Results Jeep' });
-});
+/* GET jeeps */
+router.get('/', Jeep_controlers.jeep_view_all_Page );
 
 module.exports = router;

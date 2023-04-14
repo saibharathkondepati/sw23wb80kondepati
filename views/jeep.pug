@@ -2,13 +2,17 @@ extends layout
 
 block content
   h1= title
-  - let results=[{jeep_name:"Wrangler",jeep_name:"blue",jeep_price:20000},{jeep_name:"Cherokee",jeep_color:"red",jeep_price:60000},{jeep_name:"Renegade",jeep_color:"green",jeep_price:578000}]
+  - let items=results
   div(class="container-fluid")
   div(class="row")
-  each value,indexNo in results
-    div(class="col-sm-2" onclick=`buy(${indexNo})`)  #{value.jeep_name} Jeep, color is #{value.jeep_name},price value is #{value.jeep_price}
+  each value,indexNo in items
+    div(class="col-sm-2" onclick=`buy(${indexNo})`)
+     p Name is #{value.Jeep_name} 
+     p Jeep, color is #{value.Jeep_color}
+     p price value is #{value.Jeep_price}
   script. 
     function buy(indexNo)
     {
       alert(`You purchased Item ${indexNo+1}`)
     }
+
