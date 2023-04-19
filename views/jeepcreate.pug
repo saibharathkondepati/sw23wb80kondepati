@@ -1,0 +1,33 @@
+extends layout
+
+block content
+ h1= title
+ form(id='jeepForm' action="/resource/jeeps" method="POST")
+  div.form-group
+      label.jeepAttr(for='Jeep_name') jeep Name
+      input#jeep_name(type='text' name='Jeep_name')
+  div.form-group
+      label.jeepAttr(for='Jeep_color') jeep color
+      input#jeep_color(type='text' name='Jeep_color')
+  div.form-group
+      label.jeepAttr(for='Jeep_price') jeep price
+      input#price(type='number' name='Jeep_price')
+      input(type="submit")
+      script.
+        document.forms['jeepForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+        alert("Save succeded")
+        window.location.href='/jeeps'
+            // TODO handle body
+        }).catch((error) => {
+            // TODO handle error
+        alert("Save failed " + error )
+        });
+        });

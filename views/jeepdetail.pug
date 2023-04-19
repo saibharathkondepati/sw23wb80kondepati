@@ -1,0 +1,16 @@
+extends layout
+block content
+    h1= title
+    - let Jeep_name = toShow.Jeep_name
+    - let Jeep_color = toShow.Jeep_color
+    - let Jeep_price = toShow.Jeep_price
+        div
+            div.row(id="jeepAttr")
+                div(class="jeepAttr mr-3") jeep Name is:
+                div #{Jeep_name}
+            div.row
+                div(class="jeepAttr mr-3") jeep color is:
+                div #{Jeep_color}
+            div.row
+                div(class="jeepAttr mr-3") jeep price is:
+                div #{Jeep_price}
