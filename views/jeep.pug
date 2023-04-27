@@ -6,7 +6,7 @@ block content
   div(class="container-fluid")
   div(class="row")
   each value,indexNo in items
-   let destination = `dispatch(\"/costumes/update?id=${item._id}\")`
+   let destination = `dispatch(\"/jeeps/update?id=${item._id}\")`
     div(class="col-sm-2" onclick=`buy(${indexNo})`)
      p Name is #{value.Jeep_name} 
      p Jeep, color is #{value.Jeep_color}
@@ -17,4 +17,23 @@ block content
     {
       alert(`You purchased Item ${indexNo+1}`)
     }
+block content
+  h1= title
+  -let items = results
+    - let destination2 = `dispatch(\"/jeeps/create")`
+    button.btn( class="btn-success m1-1" onclick= destination2) Create
+  div(class="container-fluid")
+   div(class="row m-1")
+    each item in items
+     - let destination = `dispatch(\"/jeeps/update?id=${item._id}\")`
+     div(class="row-sm-2", class="m-1") Item #{item.Jeep_name}(#{item.Jeep_color}) is #{item.Jeep_price}
+      button.btn( class="btn-primary ml-1", onclick= destination) Update
+      button.btn( class="btn-primary ml-1", onclick= `dispatch(\"/jeeps/delete?id=${item._id}\")`) Delete
+      button.btn( class="btn-primary ml-1", onclick= `dispatch(\"/jeeps/detail?id=${item._id}\")`) Details 
 
+
+
+  script.
+   function dispatch(path){
+     window.location.href=path
+   }

@@ -1,27 +1,16 @@
 extends layout
 block content
     h1= title
-    if(toShow == null)
-        h2 No instance to detail for delete 
-    else
-        - let Car_color = toShow.Car_color
-        - let Car_model = toShow.Car_model
-        - let Car_Title = toShow.Car_Title
-        - let Car_mileage = toShow.Car_mileage
-        - let Car_cost = toShow.Car_cost
+    - let Jeep_name = toShow.Jeep_name
+    - let Jeep_color = toShow.Jeep_color
+    - let Jeep_price = toShow.Jeep_price
         div
-            div.row(id="carAttr")
-                div(class="carAttr mr-3") car color is:
-                div #{Car_color}
+            div.row(id="jeepAttr")
+                div(class="jeepAttr mr-3") jeep Name is:
+                div #{Jeep_name}
             div.row
-                div(class="carAttr mr-3") car Model is:
-                div #{Car_model}
+                div(class="jeepAttr mr-3") jeep color is:
+                div #{Jeep_color}
             div.row
-                div(class="carAttr mr-3") car Title is:
-                div #{Car_Title}
-            div.row
-                div(class="carAttr mr-3") car Mileage is:
-                div #{Car_mileage}
-            div.row
-                div(class="carAttr mr-3") car cost is:
-                div #{Car_cost}
+                div(class="jeepAttr mr-3") jeep price is:
+                div #{Jeep_price}
